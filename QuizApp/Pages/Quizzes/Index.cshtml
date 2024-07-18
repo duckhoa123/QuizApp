@@ -1,0 +1,23 @@
+﻿@page
+@model QuizApp.Pages.Quizzes.IndexModel
+@{
+}
+<div class="features_items">
+    <h2 class="title">Quiz Page</h2>
+             @foreach (var item in Model.Questions)
+    {
+        <form method="post">
+                <div>
+                    <a>@item.Content</a>
+                    <input type="radio" name="@item.Id" asp-page-handler="Ans" asp-route-id="@item.Id" asp-route-choice="A"  />@item.ChoiceA<br />
+                    <input type="radio" name="@item.Id" asp-page-handler="Ans" asp-route-id="@item.Id" asp-route-choice="B"/>@item.ChoiceB<br />
+                    <input type="radio" name="@item.Id" asp-page-handler="Ans" asp-route-id="@item.Id" asp-route-choice="C" />@item.ChoiceC<br />
+                    <input type="radio" name="@item.Id" asp-page-handler="Ans" asp-route-id="@item.Id" asp-route-choice="D"  />@item.ChoiceD<br />
+                </div>
+            </form>
+            
+        }
+        <button type="submit">Submit</button>
+       <a  >@Model.ListQuizz.TotalScore</a>
+        <a class="btn" asp-page="/Cart/Index" asp-route-handler="Add" >Take new quizz</a>
+</div>
