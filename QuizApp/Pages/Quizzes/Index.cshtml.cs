@@ -10,7 +10,9 @@ namespace QuizApp.Pages.Quizzes
     public class IndexModel : PageModel
     {
 		private readonly ApplicationDbContext _applicationDbContext;
-		public ListQuizz ListQuizz { get; set; }
+        [BindProperty]
+        public List<char> ListQuizz { get; set; }
+        [BindProperty]
         public List<Question> Questions { get; set; }
 
 		public IndexModel(ApplicationDbContext applicationDbContext)
@@ -19,36 +21,47 @@ namespace QuizApp.Pages.Quizzes
 		}
 		public void OnGet()
         {
-            List<Quizz> quizzes =  new List<Quizz>();
             var data = from m in _applicationDbContext.Questions
                        select m;
-            Questions=data.ToList();
-            foreach (var item in data)
+            Questions = data.ToList();
+            List<Quizz> quizzes = HttpContext.Session.GetJson<List<Quizz>>("Quizzes");
+            if (quizzes==null)
             {
-                quizzes.Add(new Quizz(item));
+                quizzes= new List<Quizz>();
+                foreach (var item in data)
+                {
+                    quizzes.Add(new Quizz(item));
+
+                }
+                HttpContext.Session.SetJson("Quizzes", quizzes);
 
             }
-            HttpContext.Session.SetJson("Quizzes", quizzes);
-            ListQuizz = new()
-            {
-                Quizz = quizzes,
-                TotalScore = quizzes.Sum(x => x.Score)
-            };
-            
+            ListQuizz= new List<char>(quizzes.Count);
+            int TotalScore = quizzes.Sum(x => x.Score);
+            ViewData["Score"] = TotalScore.ToString();
+
+
 
         }
-        public async Task<IActionResult> OnPostAnsAsync(int id,char choice)
+        public async Task<IActionResult> OnPost()
         {
-            Console.WriteLine("khoa");
-            List<Quizz> quizzes = HttpContext.Session.GetJson<List<Quizz>>("Quizzes") ?? new List<Quizz>();
-            Quizz quizz = quizzes.Where(c => c.QuestionId == id).FirstOrDefault();
-            quizz.Choice = choice;
-            HttpContext.Session.SetJson("Quizzes", quizzes);
-            ListQuizz = new()
+            List<Quizz> quizzes = HttpContext.Session.GetJson<List<Quizz>>("Quizzes");
+            for(int i=0;i<quizzes.Count;i++)
             {
-                Quizz = quizzes,
-                TotalScore = quizzes.Sum(x => x.Score)
-            };
+                quizzes[i].Choice = ListQuizz[i];
+            }
+            HttpContext.Session.SetJson("Quizzes", quizzes);
+
+
+           int TotalScore = quizzes.Sum(x => x.Score);
+            ViewData["Score"] = TotalScore.ToString();
+
+
+
+
+
+
+
             return RedirectToPage("./Index");
         }
     }

@@ -4,20 +4,36 @@
 }
 <div class="features_items">
     <h2 class="title">Quiz Page</h2>
-             @foreach (var item in Model.Questions)
-    {
-        <form method="post">
+         
+
+
+          <form method="post">
+        @for (var i = 0; i < Model.Questions.Count; i++)
+        {<div>
+                 <a>@Model.Questions[i].Content</a
+     
                 <div>
-                    <a>@item.Content</a>
-                    <input type="radio" name="@item.Id" asp-page-handler="Ans" asp-route-id="@item.Id" asp-route-choice="A"  />@item.ChoiceA<br />
-                    <input type="radio" name="@item.Id" asp-page-handler="Ans" asp-route-id="@item.Id" asp-route-choice="B"/>@item.ChoiceB<br />
-                    <input type="radio" name="@item.Id" asp-page-handler="Ans" asp-route-id="@item.Id" asp-route-choice="C" />@item.ChoiceC<br />
-                    <input type="radio" name="@item.Id" asp-page-handler="Ans" asp-route-id="@item.Id" asp-route-choice="D"  />@item.ChoiceD<br />
+                           
+                                <input type="radio" id="A_@i" name="ListQuizz[@i]" value="A" />
+                                <label for="A_@i">@Model.Questions[i].ChoiceA</label>
                 </div>
-            </form>
-            
+                     <div>
+                                                <input type="radio" id="B_@i" name="ListQuizz[@i]" value="B" />
+                                    <label for="A_@i">@Model.Questions[i].ChoiceB</label>
+                    </div>
+                         <div>
+                                                <input type="radio" id="C_@i" name="ListQuizz[@i]" value="C" />
+                                    <label for="C_@i">@Model.Questions[i].ChoiceC</label>
+                    </div>
+                         <div>
+                                        <input type="radio" id="D_@i" name="ListQuizz[@i]" value="D" />
+                                    <label for="D_@i">@Model.Questions[i].ChoiceD</label>
+                    </div>
+                           </div>
         }
         <button type="submit">Submit</button>
-       <a  >@Model.ListQuizz.TotalScore</a>
+    </form>
+    
+       <a >@ViewData["Score"]</a>
         <a class="btn" asp-page="/Cart/Index" asp-route-handler="Add" >Take new quizz</a>
 </div>
