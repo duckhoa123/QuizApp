@@ -1,0 +1,42 @@
+﻿@page
+@model QuizApp.Pages.Edit.AddQuesModel
+@{
+}
+
+<h2>Add Question</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Questions.Content"></label>
+        <input asp-for="Questions.Content" class="form-control" />
+        <span asp-validation-for="Questions.Content" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Questions.ChoiceA"></label>
+        <input asp-for="Questions.ChoiceA" class="form-control" />
+        <span asp-validation-for="Questions.ChoiceA" class="text-danger"></span>
+    </div>
+     <div class="form-group">
+        <label asp-for="Questions.ChoiceB"></label>
+        <input asp-for="Questions.ChoiceB" class="form-control" />
+        <span asp-validation-for="Questions.ChoiceB" class="text-danger"></span>
+    </div>
+     <div class="form-group">
+        <label asp-for="Questions.ChoiceC"></label>
+        <input asp-for="Questions.ChoiceC" class="form-control" />
+        <span asp-validation-for="Questions.ChoiceC" class="text-danger"></span>
+    </div>
+     <div class="form-group">
+        <label asp-for="Questions.ChoiceD"></label>
+        <input asp-for="Questions.ChoiceD" class="form-control" />
+        <span asp-validation-for="Questions.ChoiceD" class="text-danger"></span>
+    </div>
+     <div class="form-group">
+        <label asp-for="Questions.CorrectAnswer"></label>
+        <input asp-for="Questions.CorrectAnswer" class="form-control" />
+        <span asp-validation-for="Questions.CorrectAnswer" class="text-danger"></span>
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+

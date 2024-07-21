@@ -1,5 +1,5 @@
 ﻿@page
-@model QuizApp.Pages.Quizzes.IndexModel
+@model QuizApp.Pages.Quizzes.TakeQuizzModel
 @{
 }
 <div class="features_items">
@@ -9,8 +9,10 @@
 
           <form method="post">
         @for (var i = 0; i < Model.Questions.Count; i++)
-        {<div>
-                 <a>@Model.Questions[i].Content</a
+        {
+            
+            <div>
+                 <a>@Model.Questions[i].Content</a>
      
                 <div>
                            
@@ -29,11 +31,13 @@
                                         <input type="radio" id="D_@i" name="ListQuizz[@i]" value="D" />
                                     <label for="D_@i">@Model.Questions[i].ChoiceD</label>
                     </div>
+                        <input type="hidden" id="O_@i" name="ListQuizz[@i]" value="O" />
                            </div>
+
         }
         <button type="submit">Submit</button>
     </form>
     
        <a >@ViewData["Score"]</a>
-        <a class="btn" asp-page="/Cart/Index" asp-route-handler="Add" >Take new quizz</a>
+        <a class="btn" asp-page="" asp-route-handler="Add" >Take new quizz</a>
 </div>

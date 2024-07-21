@@ -19,6 +19,7 @@ namespace QuizApp.Models
 		public string ChoiceD { get; set; }
 		[Required(ErrorMessage = "Please provide correct result")]
 		public char CorrectAnswer {  get; set; }
+        public int QuizzId { get; set; }
 
-	}
+    }
 }

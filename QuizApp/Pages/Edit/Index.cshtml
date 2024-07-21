@@ -1,0 +1,22 @@
+﻿@page
+@model QuizApp.Pages.Edit.IndexModel
+@{
+}
+<div class="features_items">
+    <h2 class="title">Quiz Page</h2>
+
+
+
+
+    @foreach (var item in Model.QuizzModels)
+    {
+
+
+                             <a asp-page="./AddQues" asp-route-Id="@item.Id">@item.Name</a>
+
+
+
+    }
+
+
+</div>

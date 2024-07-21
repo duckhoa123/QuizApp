@@ -7,5 +7,6 @@ namespace QuizApp.Data
 	{
 		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 		public DbSet<Question> Questions { get; set; }
-	}
+        public DbSet<QuizzModel> QuizzModels { get; set; }
+    }
 }

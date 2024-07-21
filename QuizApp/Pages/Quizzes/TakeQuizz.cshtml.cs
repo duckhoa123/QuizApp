@@ -1,48 +1,49 @@
 using Azure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using QuizApp.Data;
 using QuizApp.Models;
 using QuizApp.Models.ViewModels;
 
 namespace QuizApp.Pages.Quizzes
 {
-    public class IndexModel : PageModel
+    public class TakeQuizzModel : PageModel
     {
 		private readonly ApplicationDbContext _applicationDbContext;
         [BindProperty]
         public List<char> ListQuizz { get; set; }
         [BindProperty]
         public List<Question> Questions { get; set; }
+     
+        
 
-		public IndexModel(ApplicationDbContext applicationDbContext)
+        public TakeQuizzModel(ApplicationDbContext applicationDbContext)
 		{
 			_applicationDbContext = applicationDbContext;
 		}
-		public void OnGet()
+		public void OnGet(int id)
         {
-            var data = from m in _applicationDbContext.Questions
-                       select m;
-            Questions = data.ToList();
+            if (id == 0) { RedirectToAction("./SelectQuizz"); }
+            
+            
+            
+            Questions =  _applicationDbContext.Questions.Where(c => c.QuizzId == id).ToList();
             List<Quizz> quizzes = HttpContext.Session.GetJson<List<Quizz>>("Quizzes");
-            if (quizzes==null)
-            {
+          
                 quizzes= new List<Quizz>();
-                foreach (var item in data)
+                foreach (var item in Questions)
                 {
                     quizzes.Add(new Quizz(item));
 
                 }
                 HttpContext.Session.SetJson("Quizzes", quizzes);
 
-            }
+            
             ListQuizz= new List<char>(quizzes.Count);
             int TotalScore = quizzes.Sum(x => x.Score);
             ViewData["Score"] = TotalScore.ToString();
-
-
-
-        }
+       }
         public async Task<IActionResult> OnPost()
         {
             List<Quizz> quizzes = HttpContext.Session.GetJson<List<Quizz>>("Quizzes");
@@ -54,15 +55,9 @@ namespace QuizApp.Pages.Quizzes
 
 
            int TotalScore = quizzes.Sum(x => x.Score);
-            ViewData["Score"] = TotalScore.ToString();
+          
 
-
-
-
-
-
-
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Score/Index", new { score = TotalScore, quesNum = quizzes.Count });
         }
     }
 }
