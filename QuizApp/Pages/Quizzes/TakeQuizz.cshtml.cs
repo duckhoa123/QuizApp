@@ -44,6 +44,7 @@ namespace QuizApp.Pages.Quizzes
             ListQuizz= new List<char>(quizzes.Count);
             int TotalScore = quizzes.Sum(x => x.Score);
             ViewData["Score"] = TotalScore.ToString();
+            ViewData["Id"] = id.ToString();
        }
         public async Task<IActionResult> OnPost()
         {

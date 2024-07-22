@@ -1,4 +1,4 @@
-﻿@page
+﻿@page 
 @model QuizApp.Pages.Quizzes.TakeQuizzModel
 @{
 }
@@ -16,22 +16,22 @@
      
                 <div>
                            
-                                <input type="radio" id="A_@i" name="ListQuizz[@i]" value="A" />
-                                <label for="A_@i">@Model.Questions[i].ChoiceA</label>
+                                        <input type="radio" id="@ViewData["Id"]_A_@i" name="ListQuizz[@i]" value="A" />
+                                    <label for="@ViewData["Id"]_A_@i">@Model.Questions[i].ChoiceA</label>
                 </div>
                      <div>
-                                                <input type="radio" id="B_@i" name="ListQuizz[@i]" value="B" />
-                                    <label for="A_@i">@Model.Questions[i].ChoiceB</label>
+                                                    <input type="radio" id="@ViewData["Id"]_B_@i" name="ListQuizz[@i]" value="B" />
+                                        <label for="@ViewData["Id"]_B_@i">@Model.Questions[i].ChoiceB</label>
                     </div>
                          <div>
-                                                <input type="radio" id="C_@i" name="ListQuizz[@i]" value="C" />
-                                    <label for="C_@i">@Model.Questions[i].ChoiceC</label>
+                                                    <input type="radio" id="@ViewData["Id"]_C_@i" name="ListQuizz[@i]" value="C" />
+                                        <label for="@ViewData["Id"]_C_@i">@Model.Questions[i].ChoiceC</label>
                     </div>
                          <div>
-                                        <input type="radio" id="D_@i" name="ListQuizz[@i]" value="D" />
-                                    <label for="D_@i">@Model.Questions[i].ChoiceD</label>
+                                            <input type="radio" id="@ViewData["Id"]_D_@i" name="ListQuizz[@i]" value="D" />
+                                        <label for="@ViewData["Id"]_D_@i">@Model.Questions[i].ChoiceD</label>
                     </div>
-                        <input type="hidden" id="O_@i" name="ListQuizz[@i]" value="O" />
+                            <input type="hidden" id="@ViewData["Id"]_O_@i" name="ListQuizz[@i]" value="O" />
                            </div>
 
         }
