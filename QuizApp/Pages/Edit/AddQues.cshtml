@@ -3,40 +3,51 @@
 @{
 }
 
-<h2>Add Question</h2>
+
 
 <form method="post">
-    <div class="form-group">
-        <label asp-for="Questions.Content"></label>
-        <input asp-for="Questions.Content" class="form-control" />
-        <span asp-validation-for="Questions.Content" class="text-danger"></span>
+    <h1 class="mb-3">Add Question</h1>
+    <div class="mb-3">
+        <label class="form-label" asp-for="QuestionViewModel.Content"></label>
+        <input asp-for="QuestionViewModel.Content" class="form-control" />
+        <span asp-validation-for="QuestionViewModel.Content" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Questions.ChoiceA"></label>
-        <input asp-for="Questions.ChoiceA" class="form-control" />
-        <span asp-validation-for="Questions.ChoiceA" class="text-danger"></span>
+        <label asp-for="QuestionViewModel.ChoiceA"></label>
+        <input asp-for="QuestionViewModel.ChoiceA" class="form-control" />
+        <span asp-validation-for="QuestionViewModel.ChoiceA" class="text-danger"></span>
     </div>
      <div class="form-group">
-        <label asp-for="Questions.ChoiceB"></label>
-        <input asp-for="Questions.ChoiceB" class="form-control" />
-        <span asp-validation-for="Questions.ChoiceB" class="text-danger"></span>
+        <label asp-for="QuestionViewModel.ChoiceB"></label>
+        <input asp-for="QuestionViewModel.ChoiceB" class="form-control" />
+        <span asp-validation-for="QuestionViewModel.ChoiceB" class="text-danger"></span>
     </div>
      <div class="form-group">
-        <label asp-for="Questions.ChoiceC"></label>
-        <input asp-for="Questions.ChoiceC" class="form-control" />
-        <span asp-validation-for="Questions.ChoiceC" class="text-danger"></span>
+        <label asp-for="QuestionViewModel.ChoiceC"></label>
+        <input asp-for="QuestionViewModel.ChoiceC" class="form-control" />
+        <span asp-validation-for="QuestionViewModel.ChoiceC" class="text-danger"></span>
     </div>
      <div class="form-group">
-        <label asp-for="Questions.ChoiceD"></label>
-        <input asp-for="Questions.ChoiceD" class="form-control" />
-        <span asp-validation-for="Questions.ChoiceD" class="text-danger"></span>
+        <label asp-for="QuestionViewModel.ChoiceD"></label>
+        <input asp-for="QuestionViewModel.ChoiceD" class="form-control" />
+        <span asp-validation-for="QuestionViewModel.ChoiceD" class="text-danger"></span>
     </div>
-     <div class="form-group">
-        <label asp-for="Questions.CorrectAnswer"></label>
-        <input asp-for="Questions.CorrectAnswer" class="form-control" />
-        <span asp-validation-for="Questions.CorrectAnswer" class="text-danger"></span>
-    </div>
+    <div class="form-group">
+            <label>Correct Answer</label>
+            <select asp-for="QuestionViewModel.CorrectAnswer" class="form-control" asp-items="Model.Options">
+
+            </select>
+            <span asp-validation-for="QuestionViewModel.CorrectAnswer" class="text-danger"/>
+        </div>
+
+       
    
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        
+    }
+}
 

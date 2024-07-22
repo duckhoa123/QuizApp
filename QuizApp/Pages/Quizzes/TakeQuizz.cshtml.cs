@@ -15,6 +15,7 @@ namespace QuizApp.Pages.Quizzes
         public List<char> ListQuizz { get; set; }
         [BindProperty]
         public List<Question> Questions { get; set; }
+
      
         
 
@@ -52,9 +53,9 @@ namespace QuizApp.Pages.Quizzes
                 quizzes[i].Choice = ListQuizz[i];
             }
             HttpContext.Session.SetJson("Quizzes", quizzes);
+            HttpContext.Session.Remove("Quizzes");
 
-
-           int TotalScore = quizzes.Sum(x => x.Score);
+            int TotalScore = quizzes.Sum(x => x.Score);
           
 
             return RedirectToPage("/Score/Index", new { score = TotalScore, quesNum = quizzes.Count });

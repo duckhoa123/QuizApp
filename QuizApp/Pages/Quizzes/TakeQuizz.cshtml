@@ -40,4 +40,12 @@
     
        <a >@ViewData["Score"]</a>
         <a class="btn" asp-page="" asp-route-handler="Add" >Take new quizz</a>
+         
+      
 </div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_StoreRadio");
+
+    }
+}

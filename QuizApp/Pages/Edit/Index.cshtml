@@ -9,14 +9,8 @@
 
 
     @foreach (var item in Model.QuizzModels)
-    {
-
-
-                             <a asp-page="./AddQues" asp-route-Id="@item.Id">@item.Name</a>
-
-
-
-    }
+    {              <a asp-page="./Change" asp-route-Id="@item.Id">@item.Name</a>
+   }
 
 
 </div>
