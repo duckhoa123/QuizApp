@@ -38,6 +38,7 @@ namespace QuizApp.Pages.Edit
             new SelectListItem { Value = "C", Text = "C" },
             new SelectListItem { Value = "D", Text = "D" }
         };
+            ViewData["Title"]= _applicationDbContext.QuizzModels.Where(c => c.Id == Id).First().Name;
 
         }
         public IActionResult OnPost()
@@ -58,6 +59,7 @@ namespace QuizApp.Pages.Edit
 
                 }
             }
+            TempData["success"] = "Edit Question Successfully";
             return RedirectToPage("./Change", new { id = Id }); 
 
 

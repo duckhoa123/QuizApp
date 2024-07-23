@@ -5,12 +5,20 @@
       "PackagePath": "staticwebassets\\QuizApp.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\61451\\Downloads\\QuizApp\\QuizApp\\wwwroot\\css\\quizz.css",
+      "PackagePath": "staticwebassets\\css\\quizz.css"
+    },
+    {
       "Id": "C:\\Users\\61451\\Downloads\\QuizApp\\QuizApp\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\61451\\Downloads\\QuizApp\\QuizApp\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\61451\\Downloads\\QuizApp\\QuizApp\\wwwroot\\js\\local.js",
+      "PackagePath": "staticwebassets\\js\\local.js"
     },
     {
       "Id": "C:\\Users\\61451\\Downloads\\QuizApp\\QuizApp\\wwwroot\\js\\site.js",

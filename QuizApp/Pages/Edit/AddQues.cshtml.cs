@@ -50,6 +50,7 @@ namespace QuizApp.Pages.Edit
             };
             _applicationDbContext.Questions.Add(quesmodel);
             _applicationDbContext.SaveChanges();
+            TempData["success"] = "Add Question Successfully";
             return RedirectToPage("./Change", new { id = Id });
         }
     }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "IwFOCP7ghS1cjDcRHsqdnkVrl7t/JJPeXI27riiQGe0=",
+  "Hash": "f5+rB90uMyT9ExB++01UvVgiBv7gUtK27U/+UzE2im4=",
   "Source": "QuizApp",
   "BasePath": "_content/QuizApp",
   "Mode": "Default",
@@ -55,6 +55,25 @@
       "OriginalItemSpec": "C:\\Users\\61451\\Downloads\\QuizApp\\QuizApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\QuizApp.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\61451\\Downloads\\QuizApp\\QuizApp\\wwwroot\\css\\quizz.css",
+      "SourceId": "QuizApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\61451\\Downloads\\QuizApp\\QuizApp\\wwwroot\\",
+      "BasePath": "_content/QuizApp",
+      "RelativePath": "css/quizz.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\quizz.css"
+    },
+    {
       "Identity": "C:\\Users\\61451\\Downloads\\QuizApp\\QuizApp\\wwwroot\\css\\site.css",
       "SourceId": "QuizApp",
       "SourceType": "Discovered",
@@ -91,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\61451\\Downloads\\QuizApp\\QuizApp\\wwwroot\\js\\local.js",
+      "SourceId": "QuizApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\61451\\Downloads\\QuizApp\\QuizApp\\wwwroot\\",
+      "BasePath": "_content/QuizApp",
+      "RelativePath": "js/local.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\local.js"
     },
     {
       "Identity": "C:\\Users\\61451\\Downloads\\QuizApp\\QuizApp\\wwwroot\\js\\site.js",

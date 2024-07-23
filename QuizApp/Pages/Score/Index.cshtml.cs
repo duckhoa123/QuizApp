@@ -7,11 +7,16 @@ namespace QuizApp.Pages.Score
 	{
 		public int Score { get; set; }
 		public int QuesNum { get; set; }
-		public void OnGet(int score, int quesNum)
+		public int Id { get; set; }
+		public string QuizzName { get; set; }
+        public void OnGet(int id,string quizzname,int score, int quesNum)
 		{
 			Score = score;
 			QuesNum = quesNum;
+			QuizzName = quizzname;
+			Id = id;
 
-		}
+
+        }
     }
 }
