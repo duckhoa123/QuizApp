@@ -16,7 +16,7 @@
  
     }
     function updateCounter() {
-        console.log("khoa");
+     
         const now = Date.now();
         const remainingTime = endTime - now;
 

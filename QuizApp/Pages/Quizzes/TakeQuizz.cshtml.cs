@@ -47,8 +47,10 @@ namespace QuizApp.Pages.Quizzes
                     questions[i] = questions[j];
                     questions[j] = temp;
                 }
-
                 
+               
+
+
                 HttpContext.Session.SetJson("Questions"+Id.ToString(), questions);
 
                 quizzes = new List<Quizz>();
