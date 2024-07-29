@@ -32,5 +32,6 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
-
+var context = app.Services.CreateScope().ServiceProvider.GetRequiredService<ApplicationDbContext>();
+SeedData.SeedingData(context);
 app.Run();
